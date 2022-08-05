@@ -3,5 +3,6 @@ module.exports = defineConfig({
   transpileDependencies: true,
   publicPath: '/',
   productionSourceMap: false,
-  assetsDir: 'assets'
+  assetsDir: 'assets',
+  lintOnSave: false
 })
