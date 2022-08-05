@@ -11,5 +11,3 @@ export default {
   name: 'v-catalog-item'
 }
 </script>
-
-<style></style>
