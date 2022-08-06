@@ -1,8 +1,10 @@
 <template>
-  <div class="v-main-wrapper">
-    <v-header />
-    <v-catalog />
-    <v-cart />
+  <div class="container">
+    <div class="v-main-wrapper">
+      <v-header />
+      <v-catalog />
+      <v-cart />
+    </div>
   </div>
 </template>
 

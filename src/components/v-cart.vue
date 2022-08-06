@@ -1,6 +1,6 @@
 <template>
   <div class="v-cart" v-if="CART.length">
-    <h1>Cart</h1>
+    <div class="title">Cart</div>
     <v-cart-item
       v-for="(cartItem, index) in CART"
       :key="cartItem.article"
