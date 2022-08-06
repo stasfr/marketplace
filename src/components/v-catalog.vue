@@ -1,11 +1,10 @@
 <template>
   <div class="v-catalog">
     <h1>Catalog</h1>
-    <vCatalogItem
+    <v-catalog-item
       v-for="product in PRODUCTS"
       :key="product.article"
       :productData="product"
-      @sendArticle="showChildArticleInConsole"
     />
   </div>
 </template>
@@ -20,17 +19,10 @@ export default {
     vCatalogItem
   },
   methods: {
-    ...mapActions([
-      'GET_PRODUCTS_FROM_API'
-    ]),
-    showChildArticleInConsole(data) {
-      console.log(data)
-    }
+    ...mapActions(['GET_PRODUCTS_FROM_API'])
   },
   computed: {
-    ...mapGetters([
-      'PRODUCTS'
-    ])
+    ...mapGetters(['PRODUCTS'])
   },
   mounted() {
     this.GET_PRODUCTS_FROM_API()

@@ -7,16 +7,15 @@
     />
     <div class="v-catalog-item__name">{{ productData.name }}</div>
     <div class="v-catalog-item__price">{{ productData.price }} &#8381;</div>
-    <button
-      class="v-catalog-item__add_to_card_btn btn"
-      @click="sendDataToParent"
-    >
+    <button class="v-catalog-item__add_to_card_btn btn" @click="addToCart">
       Buy
     </button>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   name: 'v-catalog-item',
   props: {
@@ -28,8 +27,9 @@ export default {
     }
   },
   methods: {
-    sendDataToParent() {
-      this.$emit('sendArticle', this.productData.article)
+    ...mapActions(['ADD_TO_CART']),
+    addToCart() {
+      this.ADD_TO_CART(this.productData)
     }
   }
 }

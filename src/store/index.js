@@ -3,16 +3,23 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    products: []
+    products: [],
+    cart: []
   },
   getters: {
     PRODUCTS(state) {
       return state.products
+    },
+    CART(state) {
+      return state.cart
     }
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
       state.products = products
+    },
+    SET_CARD: (state, product) => {
+      state.cart.push(product)
     }
   },
   actions: {
@@ -28,6 +35,9 @@ export default createStore({
           console.log(error)
           return error
         })
+    },
+    ADD_TO_CART({ commit }, product) {
+      commit('SET_CARD', product)
     }
   },
   modules: {}
