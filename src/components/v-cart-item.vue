@@ -1,6 +1,6 @@
 <template>
   <div class="v-cart-item">
-    <p>{{productData.name}}</p>
+    <p>{{productCartData.name}}</p>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 export default {
   name: 'v-cart-item',
   props: {
-    productData: {
+    productCartData: {
       type: Object,
       default() {
         return {}

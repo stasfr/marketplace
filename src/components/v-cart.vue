@@ -4,7 +4,7 @@
     <v-cart-item
       v-for="cartItem in CART"
       :key="cartItem.article"
-      :productData="cartItem"
+      :productCartData="cartItem"
     />
   </div>
 </template>
