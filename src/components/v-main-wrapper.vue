@@ -2,8 +2,7 @@
   <div class="wrapper">
     <div class="wrapper-content">
       <v-header />
-      <v-catalog />
-      <v-cart />
+      <router-view />
     </div>
   </div>
 </template>
