@@ -29,7 +29,7 @@
       "name": "T-shirt 4",
       "price": 5300,
       "article": "T4",
-      "available": true,
+      "available": false,
       "category": "Мужские"
     },
     {
@@ -45,6 +45,78 @@
       "name": "T-shirt 6",
       "price": 8700,
       "article": "T6",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "image": "7.jpg",
+      "name": "T-shirt 7",
+      "price": 5700,
+      "article": "T7",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "image": "8.jpeg",
+      "name": "T-shirt 8",
+      "price": 8700,
+      "article": "T8",
+      "available": true,
+      "category": "Мужские"
+    },
+    {
+      "image": "9.jpg",
+      "name": "T-shirt 9",
+      "price": 8700,
+      "article": "T9",
+      "available": false,
+      "category": "Женские"
+    },
+    {
+      "image": "10.jpg",
+      "name": "T-shirt 10",
+      "price": 8700,
+      "article": "T10",
+      "available": true,
+      "category": "Мужские"
+    },
+    {
+      "image": "11.jpeg",
+      "name": "T-shirt 11",
+      "price": 8700,
+      "article": "T11",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "image": "12.jpeg",
+      "name": "T-shirt 12",
+      "price": 8700,
+      "article": "T12",
+      "available": false,
+      "category": "Женские"
+    },
+    {
+      "image": "13.jpeg",
+      "name": "T-shirt 13",
+      "price": 8700,
+      "article": "T13",
+      "available": true,
+      "category": "Мужские"
+    },
+    {
+      "image": "14.jpeg",
+      "name": "T-shirt 14",
+      "price": 8700,
+      "article": "T14",
+      "available": true,
+      "category": "Женские"
+    },
+    {
+      "image": "15.jpg",
+      "name": "T-shirt 15",
+      "price": 8700,
+      "article": "T15",
       "available": true,
       "category": "Женские"
     }
