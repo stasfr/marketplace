@@ -1,11 +1,11 @@
 import { createStore } from 'vuex'
 
-import getCatalogData from '@/store/modules/getCatalogData'
+import catalogDataModule from '@/store/modules/catalogDataModule'
 import cartModule from '@/store/modules/cartModule'
 
 export default createStore({
   modules: {
-    getCatalogData,
+    catalogDataModule,
     cartModule
   }
 })
