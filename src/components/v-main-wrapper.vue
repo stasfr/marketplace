@@ -2,7 +2,7 @@
   <div class="wrapper">
     <div class="wrapper-content">
       <v-header />
-      <v-cart-menu />
+      <v-cart-menu v-if="$route.meta.requiresCartMenu" />
       <router-view />
     </div>
   </div>
@@ -17,6 +17,6 @@ export default {
   components: {
     vHeader,
     vCartMenu
-  },
+  }
 }
 </script>

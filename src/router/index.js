@@ -10,28 +10,28 @@ const routes = [
     name: 'home',
     path: '/',
     component: HomeView,
-    meta: { title: 'Home' }
+    meta: { title: 'Home', requiresCartMenu: true }
   },
   {
     title: 'Catalog',
     name: 'catalog',
     path: '/catalog',
     component: CatalogView,
-    meta: { title: 'Catalog' }
+    meta: { title: 'Catalog', requiresCartMenu: true }
   },
   {
     title: 'Cart',
     name: 'cart',
     path: '/cart',
     component: CartView,
-    meta: { title: 'Cart' },
+    meta: { title: 'Cart', requiresCartMenu: false },
     props: true
   },
   {
     path: '/:CatchAll(.*)',
     name: '404',
     component: NotFoundView,
-    meta: { title: '404 not found' }
+    meta: { title: '404 not found', requiresCartMenu: true }
   }
 ]
 

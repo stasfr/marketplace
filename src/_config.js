@@ -8,11 +8,6 @@ export const links = [
     title: 'Catalog',
     alias: 'catalog',
     url: '/catalog'
-  },
-  {
-    title: 'Cart',
-    alias: 'cart',
-    url: '/cart'
   }
 ]
 
