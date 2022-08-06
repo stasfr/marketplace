@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="v-main-wrapper">
+  <div class="wrapper">
+    <div class="wrapper-content">
       <v-header />
       <v-catalog />
       <v-cart />

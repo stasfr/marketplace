@@ -1,12 +1,13 @@
 <template>
-  <div class="v-cart" v-if="CART.length">
-    <div class="title">Cart</div>
-    <v-cart-item
-      v-for="(cartItem, index) in CART"
-      :key="cartItem.article"
-      :productCartData="cartItem"
-      @deleteFromCart="deleteFromCart(index)"
-    />
+  <div class="container">
+    <div class="v-cart">
+      <v-cart-item
+        v-for="(cartItem, index) in CART"
+        :key="cartItem.article"
+        :productCartData="cartItem"
+        @deleteFromCart="deleteFromCart(index)"
+      />
+    </div>
   </div>
 </template>
 

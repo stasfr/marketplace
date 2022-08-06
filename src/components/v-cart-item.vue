@@ -13,7 +13,7 @@
     <div class="v-cart-item__quantity">
       Quantity: {{ productCartData.quantity }}
     </div>
-    <button class="v-cart-item__btn btn" @click="deleteFromCart">Remove</button>
+    <button class="v-cart-item__btn" @click="deleteFromCart">Remove</button>
   </div>
 </template>
 
