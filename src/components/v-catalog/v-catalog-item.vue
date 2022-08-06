@@ -6,9 +6,8 @@
       :alt="productData.image"
     />
     <div class="v-catalog-item__name">{{ productData.name }}</div>
-    <div class="v-catalog-item__price">{{ productData.price }} &#8381;</div>
     <button class="v-catalog-item__add_to_card_btn" @click="addToCart">
-      Buy
+      {{ productData.price }} &#8381;
     </button>
   </div>
 </template>
