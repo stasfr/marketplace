@@ -29,14 +29,14 @@ export const links = [
     url: '/'
   },
   {
-    title: 'Cart',
-    alias: 'cart',
-    url: '/cart'
-  },
-  {
     title: 'Catalog',
     alias: 'catalog',
     url: '/catalog'
+  },
+  {
+    title: 'Cart',
+    alias: 'cart',
+    url: '/cart'
   }
 ]
 

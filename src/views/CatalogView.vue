@@ -1,9 +1,16 @@
 <template>
-  <h1>catalog</h1>
+  <div class="container">
+    <div class="title">Catalog</div>
+    <v-catalog />
+  </div>
 </template>
 
 <script>
-export default {
+import vCatalog from '@/components/v-catalog.vue'
 
+export default {
+  components: {
+    vCatalog
+  }
 }
 </script>

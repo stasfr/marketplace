@@ -1,9 +1,16 @@
 <template>
-  <h1>cart</h1>
+  <div class="container">
+    <div class="title">Cart</div>
+    <v-cart />
+  </div>
 </template>
 
 <script>
-export default {
+import vCart from '@/components/v-cart.vue'
 
+export default {
+  components: {
+    vCart
+  }
 }
 </script>
