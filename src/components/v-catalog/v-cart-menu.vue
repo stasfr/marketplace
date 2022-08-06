@@ -1,5 +1,7 @@
 <template>
-  <div class="title"><font-awesome-icon icon="fa-solid fa-cart-shopping" /></div>
+  <router-link class="cart_icon_container" to="/cart">
+    <font-awesome-icon class="cart_icon_container__item" icon="fa-solid fa-cart-shopping" />
+  </router-link>
 </template>
 
 <script>
