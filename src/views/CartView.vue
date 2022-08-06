@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import vCart from '@/components/v-cart.vue'
+import vCart from '@/components/v-cart/v-cart.vue'
 
 export default {
   components: {

@@ -24,7 +24,8 @@ const routes = [
     name: 'cart',
     path: '/cart',
     component: CartView,
-    meta: { title: 'Cart' }
+    meta: { title: 'Cart' },
+    props: true
   },
   {
     path: '/:CatchAll(.*)',

@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import vCatalog from '@/components/v-catalog.vue'
+import vCatalog from '@/components/v-catalog/v-catalog.vue'
 
 export default {
   components: {

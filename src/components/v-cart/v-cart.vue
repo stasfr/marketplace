@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import vCartItem from '@/components/v-cart-item.vue'
+import vCartItem from '@/components/v-cart/v-cart-item.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {

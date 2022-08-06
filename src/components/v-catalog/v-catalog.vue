@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import vCatalogItem from '@/components/v-catalog-item.vue'
+import vCatalogItem from '@/components/v-catalog/v-catalog-item.vue'
 import { mapActions, mapGetters } from 'vuex'
 
 export default {
