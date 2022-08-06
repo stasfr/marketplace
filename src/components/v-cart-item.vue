@@ -10,7 +10,10 @@
       <div>{{ productCartData.article }}</div>
       <div>{{ productCartData.price }} &#8381;</div>
     </div>
-    <button class="v-cart-item__btn btn">Remove</button>
+    <div class="v-cart-item__quantity">
+      Quantity: {{ productCartData.quantity }}
+    </div>
+    <button class="v-cart-item__btn btn" @click="deleteFromCart">Remove</button>
   </div>
 </template>
 
@@ -23,6 +26,14 @@ export default {
       default() {
         return {}
       }
+    }
+  },
+  mounted() {
+    this.productCartData['quantity'] = 1
+  },
+  methods: {
+    deleteFromCart() {
+      this.$emit('deleteFromCart')
     }
   }
 }

@@ -2,16 +2,17 @@
   <div class="v-cart" v-if="CART.length">
     <h1>Cart</h1>
     <v-cart-item
-      v-for="cartItem in CART"
+      v-for="(cartItem, index) in CART"
       :key="cartItem.article"
       :productCartData="cartItem"
+      @deleteFromCart="deleteFromCart(index)"
     />
   </div>
 </template>
 
 <script>
 import vCartItem from '@/components/v-cart-item.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'v-cart',
@@ -20,6 +21,12 @@ export default {
   },
   computed: {
     ...mapGetters(['CART'])
+  },
+  methods: {
+    ...mapActions(['DELETE_FROM_CART']),
+    deleteFromCart(index) {
+      this.DELETE_FROM_CART(index)
+    }
   }
 }
 </script>
