@@ -5,6 +5,7 @@
       v-for="product in products"
       :key="product.article"
       :productData="product"
+      @sendArticle="showChildArticleInConsole"
     />
   </div>
 </template>
@@ -69,6 +70,11 @@ export default {
           category: 'Женские'
         }
       ]
+    }
+  },
+  methods: {
+    showChildArticleInConsole(data) {
+      console.log(data);
     }
   }
 }
