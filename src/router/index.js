@@ -9,27 +9,35 @@ const routes = [
     name: 'home',
     path: '/',
     component: HomeView,
-    meta: { title: 'Home Page' }
+    meta: { title: 'Home' }
   },
   {
     title: 'Catalog',
     name: 'catalog',
     path: '/catalog',
     component: CatalogView,
-    meta: { title: 'Catalog Page' }
+    meta: { title: 'Catalog' }
   },
   {
     title: 'Cart',
     name: 'cart',
     path: '/cart',
     component: CartView,
-    meta: { title: 'Cart Page' }
+    meta: { title: 'Cart' }
   }
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior() {
+    window.scrollTo(0, 0)
+  }
+})
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta.title
+  next()
 })
 
 export default router
