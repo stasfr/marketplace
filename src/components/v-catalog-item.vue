@@ -8,6 +8,14 @@
 
 <script>
 export default {
-  name: 'v-catalog-item'
+  name: 'v-catalog-item',
+  props: {
+    productData: {
+      type: Object,
+      default() {
+        return {}
+      }
+    }
+  }
 }
 </script>
