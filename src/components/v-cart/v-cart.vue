@@ -13,7 +13,7 @@
 
 <script>
 import vCartItem from '@/components/v-cart/v-cart-item.vue'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 
 export default {
   name: 'v-cart',
@@ -23,14 +23,23 @@ export default {
   computed: {
     ...mapGetters(['CART', 'PRODUCTS'])
   },
+  created() {
+    this.GET_PRODUCTS_FROM_API()
+  },
+  mounted() {
+    this.LOAD_FROM_LOCAL_STORAGE()
+  },
   methods: {
+    ...mapActions(['LOAD_FROM_LOCAL_STORAGE', 'GET_PRODUCTS_FROM_API']),
     isCartEmpty(CART) {
       return !Object.keys(CART).length
     },
     findProduct(cartItemKey, cartItemValue, PRODUCTS) {
-      let prod = PRODUCTS.find(element => element.article === cartItemKey)
-      prod['quantity'] = cartItemValue
-      return prod
+      let cartProduct = PRODUCTS.find(
+        element => element.article === cartItemKey
+      )
+      cartProduct['quantity'] = cartItemValue
+      return cartProduct
     }
   }
 }
