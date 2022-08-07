@@ -13,11 +13,13 @@
     <div class="v-cart-item__quantity">
       Quantity: {{ productCartData.quantity }}
     </div>
-    <button class="v-cart-item__btn" @click="deleteFromCart">Remove</button>
+    <button class="v-cart-item__btn" @click="deleteFromCart(productCartData.article)">Remove</button>
   </div>
 </template>
 
 <script>
+import { mapGetters, mapActions } from 'vuex'
+
 export default {
   name: 'v-cart-item',
   props: {
@@ -28,12 +30,13 @@ export default {
       }
     }
   },
-  mounted() {
-    this.productCartData['quantity'] = 1
+  computed: {
+    ...mapGetters(['CART'])
   },
   methods: {
-    deleteFromCart() {
-      this.$emit('deleteFromCart')
+    ...mapActions(['DELETE_FROM_CART']),
+    deleteFromCart(key) {
+      this.DELETE_FROM_CART(key)
     }
   }
 }

@@ -1,11 +1,11 @@
 <template>
   <div class="container">
     <div class="v-cart">
+      <div class="title" v-if="isCartEmpty(CART)">Cart is empty</div>
       <v-cart-item
-        v-for="(cartItem, index) in CART"
-        :key="cartItem.article"
-        :productCartData="cartItem"
-        @deleteFromCart="deleteFromCart(index)"
+        v-for="(cartItemValue, cartItemKey) in CART"
+        :key="cartItemKey"
+        :productCartData="findProduct(cartItemKey, cartItemValue, PRODUCTS)"
       />
     </div>
   </div>
@@ -13,7 +13,7 @@
 
 <script>
 import vCartItem from '@/components/v-cart/v-cart-item.vue'
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'v-cart',
@@ -21,12 +21,16 @@ export default {
     vCartItem
   },
   computed: {
-    ...mapGetters(['CART'])
+    ...mapGetters(['CART', 'PRODUCTS'])
   },
   methods: {
-    ...mapActions(['DELETE_FROM_CART']),
-    deleteFromCart(index) {
-      this.DELETE_FROM_CART(index)
+    isCartEmpty(CART) {
+      return !Object.keys(CART).length
+    },
+    findProduct(cartItemKey, cartItemValue, PRODUCTS) {
+      let prod = PRODUCTS.find(element => element.article === cartItemKey)
+      prod['quantity'] = cartItemValue
+      return prod
     }
   }
 }
