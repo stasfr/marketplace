@@ -7,7 +7,7 @@
         :key="cartItemKey"
         :productArticle="cartItemKey"
         :productQuantity="cartItemValue"
-        :product="this.$store.state.catalogDataModule.products.filter(el => el.article === cartItemKey)[0]"
+        :productData="PRODUCTS.find(el => el.article === cartItemKey)"
       />
     </div>
   </div>
@@ -37,8 +37,6 @@ export default {
   mounted() {
     this.LOAD_FROM_LOCAL_STORAGE()
     this.GET_PRODUCTS_FROM_API(Object.keys(this.CART))
-    console.log(this.$store.state);
-    console.log(this.$store.state.catalogDataModule.products);
   }
 }
 </script>

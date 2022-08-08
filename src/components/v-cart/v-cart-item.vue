@@ -1,14 +1,14 @@
 <template>
-  <div class="v-cart-item" v-if="product !== undefined">
+  <div class="v-cart-item" v-if="productData !== undefined">
     <img
       class="v-cart-item__image"
-      :alt="product.image"
-      :src="require(`@/assets/images/${product.image}`)"
+      :alt="productData.image"
+      :src="require(`@/assets/images/${productData.image}`)"
     />
     <div class="v-cart-item__info">
-      <div>{{ product.name }}</div>
-      <div>{{ product.article }}</div>
-      <div>{{ product.price }} &#8381;</div>
+      <div>{{ productData.name }}</div>
+      <div>{{ productData.article }}</div>
+      <div>{{ productData.price }} &#8381;</div>
     </div>
     <div class="v-cart-item__quantity">
       Quantity:
@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 
 export default {
   name: 'v-cart-item',
@@ -34,15 +34,7 @@ export default {
       type: Number,
       required: true
     },
-    product: Object
-  },
-  data() {
-    return {
-      // product: this.$store.state.catalogDataModule.products.filter(el => el.article === productArticle)[0]
-    }
-  },
-  computed: {
-    ...mapGetters(['PRODUCTS']),
+    productData: Object
   },
   methods: {
     ...mapActions(['DELETE_FROM_CART', 'CHANGE_QUANTITY']),
@@ -54,12 +46,6 @@ export default {
       const newQuantity = Number.parseInt(event.target.value)
       this.CHANGE_QUANTITY({articleToChange, newQuantity})
     }
-  },
-  mounted() {
-    // console.log('this.product');
-    // console.log(this.product);
-    // console.log('this.allProducts');
-    // console.log(this.allProducts);
   }
 }
 </script>
