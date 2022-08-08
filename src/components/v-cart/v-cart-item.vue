@@ -1,14 +1,14 @@
 <template>
-  <div class="v-cart-item">
+  <div class="v-cart-item" v-if="product !== undefined">
     <img
       class="v-cart-item__image"
-      :alt="productData.image"
-      :src="require('@/assets/images/' + productData.image)"
+      :alt="product.image"
+      :src="require(`@/assets/images/${product.image}`)"
     />
     <div class="v-cart-item__info">
-      <div>{{ productData.name }}</div>
-      <div>{{ productData.article }}</div>
-      <div>{{ productData.price }} &#8381;</div>
+      <div>{{ product.name }}</div>
+      <div>{{ product.article }}</div>
+      <div>{{ product.price }} &#8381;</div>
     </div>
     <div class="v-cart-item__quantity">
       Quantity:
@@ -34,20 +34,15 @@ export default {
       type: Number,
       required: true
     },
-    productData: {
-      type: Object,
-      default() {
-        return {
-          image: 'test.jpg',
-          name: 'test',
-          article: 'test',
-          price: 'test'
-        }
-      }
+    product: Object
+  },
+  data() {
+    return {
+      // product: this.$store.state.catalogDataModule.products.filter(el => el.article === productArticle)[0]
     }
   },
   computed: {
-    ...mapGetters(['PRODUCTS'])
+    ...mapGetters(['PRODUCTS']),
   },
   methods: {
     ...mapActions(['DELETE_FROM_CART', 'CHANGE_QUANTITY']),
@@ -59,6 +54,12 @@ export default {
       const newQuantity = Number.parseInt(event.target.value)
       this.CHANGE_QUANTITY({articleToChange, newQuantity})
     }
+  },
+  mounted() {
+    // console.log('this.product');
+    // console.log(this.product);
+    // console.log('this.allProducts');
+    // console.log(this.allProducts);
   }
 }
 </script>
