@@ -11,6 +11,9 @@ export default {
     },
     LOAD_FROM_LOCAL_STORAGE({ commit }) {
       commit('GET_LOCAL_CART')
+    },
+    CHANGE_QUANTITY({commit}, changeData) {
+      commit('SET_QUANTITY', changeData)
     }
   },
   mutations: {
@@ -24,16 +27,17 @@ export default {
       delete state.cart[key]
       localStorage.setItem('UserCart', JSON.stringify(state.cart))
     },
-    GET_LOCAL_CART: (state) => {
+    GET_LOCAL_CART: state => {
       const localCart = localStorage.getItem('UserCart')
       if (localCart !== null) {
-        // console.log(localCart);
-        // console.log(JSON.parse(localCart));
-        // console.log(state.cart);
         state.cart = JSON.parse(localCart)
       } else {
         state.cart = {}
       }
+    },
+    SET_QUANTITY: (state, changeData) => {
+      state.cart[changeData.articleToChange] = changeData.newQuantity
+      localStorage.setItem('UserCart', JSON.stringify(state.cart))
     }
   },
   getters: {

@@ -5,7 +5,8 @@
       <v-cart-item
         v-for="(cartItemValue, cartItemKey) in CART"
         :key="cartItemKey"
-        :productCartData="findProduct(cartItemKey, cartItemValue, PRODUCTS)"
+        :productArticle="cartItemKey"
+        :productQuantity="cartItemValue"
       />
     </div>
   </div>
@@ -20,27 +21,18 @@ export default {
   components: {
     vCartItem
   },
-  computed: {
-    ...mapGetters(['CART', 'PRODUCTS'])
-  },
-  created() {
-    this.GET_PRODUCTS_FROM_API()
-  },
-  mounted() {
-    this.LOAD_FROM_LOCAL_STORAGE()
-  },
   methods: {
     ...mapActions(['LOAD_FROM_LOCAL_STORAGE', 'GET_PRODUCTS_FROM_API']),
     isCartEmpty(CART) {
       return !Object.keys(CART).length
-    },
-    findProduct(cartItemKey, cartItemValue, PRODUCTS) {
-      let cartProduct = PRODUCTS.find(
-        element => element.article === cartItemKey
-      )
-      cartProduct['quantity'] = cartItemValue
-      return cartProduct
     }
+  },
+  computed: {
+    ...mapGetters(['CART', 'PRODUCTS'])
+  },
+  mounted() {
+    this.LOAD_FROM_LOCAL_STORAGE()
+    this.GET_PRODUCTS_FROM_API(Object.keys(this.CART))
   }
 }
 </script>

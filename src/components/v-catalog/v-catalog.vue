@@ -20,12 +20,13 @@ export default {
     vCatalogItem
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS_FROM_API'])
+    ...mapActions(['GET_PRODUCTS_FROM_API', 'LOAD_FROM_LOCAL_STORAGE'])
   },
   computed: {
     ...mapGetters(['PRODUCTS'])
   },
   mounted() {
+    this.LOAD_FROM_LOCAL_STORAGE()
     this.GET_PRODUCTS_FROM_API()
   }
 }

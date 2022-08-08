@@ -1,3 +1,4 @@
+import { backendUrl } from '@/_config'
 import axios from 'axios'
 
 export default {
@@ -5,9 +6,11 @@ export default {
     products: []
   },
   actions: {
-    GET_PRODUCTS_FROM_API({ commit }) {
-      return axios('http://localhost:3000/products', {
-        method: 'GET'
+    GET_PRODUCTS_FROM_API({ commit }, articles) {
+      return axios.get(`${backendUrl}/products`, {
+        params: {
+          'article': articles
+        }
       })
         .then(products => {
           commit('SET_PRODUCTS_TO_STATE', products.data)

@@ -2,41 +2,62 @@
   <div class="v-cart-item">
     <img
       class="v-cart-item__image"
-      :src="require('@/assets/images/' + productCartData.image)"
-      :alt="productCartData.image"
+      :alt="productData.image"
+      :src="require('@/assets/images/' + productData.image)"
     />
     <div class="v-cart-item__info">
-      <div>{{ productCartData.name }}</div>
-      <div>{{ productCartData.article }}</div>
-      <div>{{ productCartData.price }} &#8381;</div>
+      <div>{{ productData.name }}</div>
+      <div>{{ productData.article }}</div>
+      <div>{{ productData.price }} &#8381;</div>
     </div>
     <div class="v-cart-item__quantity">
-      Quantity: {{ productCartData.quantity }}
+      Quantity:
+      <input v-model="productQuantity" type="text" @input.prevent="changeQuantity" />
     </div>
-    <button class="v-cart-item__btn" @click="deleteFromCart(productCartData.article)">Remove</button>
+    <button class="v-cart-item__btn" @click="deleteFromCart(productArticle)">
+      Remove
+    </button>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'v-cart-item',
   props: {
-    productCartData: {
+    productArticle: {
+      type: String,
+      required: true
+    },
+    productQuantity: {
+      type: Number,
+      required: true
+    },
+    productData: {
       type: Object,
       default() {
-        return {}
+        return {
+          image: 'test.jpg',
+          name: 'test',
+          article: 'test',
+          price: 'test'
+        }
       }
     }
   },
   computed: {
-    ...mapGetters(['CART'])
+    ...mapGetters(['PRODUCTS'])
   },
   methods: {
-    ...mapActions(['DELETE_FROM_CART']),
+    ...mapActions(['DELETE_FROM_CART', 'CHANGE_QUANTITY']),
     deleteFromCart(key) {
       this.DELETE_FROM_CART(key)
+    },
+    changeQuantity(event) {
+      const articleToChange = this.productArticle
+      const newQuantity = Number.parseInt(event.target.value)
+      this.CHANGE_QUANTITY({articleToChange, newQuantity})
     }
   }
 }
