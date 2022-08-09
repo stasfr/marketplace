@@ -144,7 +144,7 @@ section,
   &__image {
     width: auto;
     height: 225px;
-    margin-bottom: $margin*2;
+    margin-bottom: $margin * 2;
   }
   &__link {
     display: flex;
@@ -181,7 +181,7 @@ section,
   height: 50px;
   background-color: #ffffff;
   box-shadow: 0 0 8px 0 #c0c0c0;
-  border-radius: $radius*8;
+  border-radius: $radius * 8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -192,6 +192,18 @@ section,
     width: 70%;
     height: 70%;
   }
+}
+
+.popup__wrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup__message{
+
 }
 
 @import './common/_common';

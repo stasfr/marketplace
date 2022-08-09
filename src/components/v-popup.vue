@@ -1,6 +1,6 @@
 <template>
   <div class="popup__wrapper">
-    <div class="popup_message">
+    <div class="popup__message">
       <div class="title">Sorry</div>
       <div>{{ this.POPUP_MESSAGE }}</div>
       <button @click="HIDE_POPUP">close</button>
