@@ -45,13 +45,17 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes,
-  scrollBehavior() {
-    window.scrollTo(0, 0)
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition
+    } else {
+      return { top: 0 }
+    }
   }
 })
 
 router.beforeEach((to, from, next) => {
-  document.title = to.params.title? to.params.title : to.meta.title
+  document.title = to.params.title ? to.params.title : to.meta.title
   next()
 })
 
