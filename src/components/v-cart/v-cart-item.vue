@@ -11,8 +11,22 @@
       <div>{{ productData.price }} &#8381;</div>
     </div>
     <div class="v-cart-item__quantity">
-      Quantity:
-      <input v-model="productQuantity" type="text" @input.prevent="changeQuantity" />
+      <font-awesome-icon
+        id="minus"
+        @click="reduceCount"
+        icon="fa-solid fa-minus"
+      />
+      <input
+        id="input"
+        v-model="localQuantity"
+        type="text"
+        @input.prevent="changeQuantity"
+      />
+      <font-awesome-icon
+        id="plus"
+        @click="increaseCount"
+        icon="fa-solid fa-plus"
+      />
     </div>
     <button class="v-cart-item__btn" @click="deleteFromCart(productArticle)">
       Remove
@@ -22,9 +36,13 @@
 
 <script>
 import { mapActions } from 'vuex'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 export default {
   name: 'v-cart-item',
+  components: {
+    FontAwesomeIcon
+  },
   props: {
     productArticle: {
       type: String,
@@ -36,15 +54,28 @@ export default {
     },
     productData: Object
   },
+  data() {
+    return {
+      localQuantity: this.productQuantity
+    }
+  },
   methods: {
     ...mapActions(['DELETE_FROM_CART', 'CHANGE_QUANTITY']),
     deleteFromCart(key) {
       this.DELETE_FROM_CART(key)
     },
-    changeQuantity(event) {
+    changeQuantity() {
       const articleToChange = this.productArticle
-      const newQuantity = Number.parseInt(event.target.value)
-      this.CHANGE_QUANTITY({articleToChange, newQuantity})
+      const newQuantity = Number.parseInt(this.localQuantity)
+      this.CHANGE_QUANTITY({ articleToChange, newQuantity })
+    },
+    reduceCount() {
+      this.localQuantity--
+      this.changeQuantity()
+    },
+    increaseCount() {
+      this.localQuantity++
+      this.changeQuantity()
     }
   }
 }
