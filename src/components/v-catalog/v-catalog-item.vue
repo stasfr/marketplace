@@ -1,11 +1,24 @@
 <template>
   <div class="v-catalog-item">
-    <img
-      class="v-catalog-item__image"
-      :src="require('@/assets/images/' + productData.image)"
-      :alt="productData.image"
-    />
-    <div class="v-catalog-item__name">{{ productData.name }}</div>
+    <router-link
+      class="v-catalog-item__link"
+      :to="{
+        name: 'ProductView',
+        params: {
+          productArticle: productData.article
+        },
+        meta: { title: productData.article }
+      }"
+    >
+      <img
+        class="v-catalog-item__image"
+        :src="require('@/assets/images/' + productData.image)"
+        :alt="productData.image"
+      />
+      <div class="v-catalog-item__name">
+        {{ productData.name }}
+      </div>
+    </router-link>
     <button class="v-catalog-item__add_to_card_btn" @click="addToCart">
       {{ productData.price }} &#8381;
     </button>
