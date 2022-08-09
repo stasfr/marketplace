@@ -5,9 +5,9 @@
       :to="{
         name: 'ProductView',
         params: {
-          productArticle: productData.article
-        },
-        meta: { title: productData.article }
+          productArticle: productData.article,
+          title: productData.name
+        }
       }"
     >
       <img

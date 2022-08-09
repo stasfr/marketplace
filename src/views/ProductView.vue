@@ -14,9 +14,9 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  beforeCreate() {
-    document.title = this.$route.params.productArticle
-  },
+  // beforeCreate() {
+  //   document.title = this.$route.params.productArticle
+  // },
   created() {
     this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
   },
