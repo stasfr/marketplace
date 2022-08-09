@@ -1,9 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '@/views/HomeView'
-import CartView from '@/views/CartView'
-import CatalogView from '@/views/CatalogView'
-import ProductView from '@/views/ProductView'
-import NotFoundView from '@/views/NotFoundView'
 
 const routes = [
   {
@@ -17,27 +13,27 @@ const routes = [
     title: 'Catalog',
     name: 'catalog',
     path: '/catalog',
-    component: CatalogView,
+    component: () => import('@/views/CatalogView'),
     meta: { title: 'Catalog', requiresCartMenu: true }
   },
   {
     title: 'Cart',
     name: 'cart',
     path: '/cart',
-    component: CartView,
+    component: () => import('@/views/CartView'),
     meta: { title: 'Cart', requiresCartMenu: false }
   },
   {
     title: 'Product',
     name: 'ProductView',
     path: '/product/:productArticle',
-    component: ProductView,
+    component: () => import('@/views/ProductView'),
     meta: { requiresCartMenu: true }
   },
   {
     path: '/:CatchAll(.*)',
     name: '404',
-    component: NotFoundView,
+    component: () => import('@/views/NotFoundView'),
     meta: { title: '404 not found', requiresCartMenu: true }
   }
 ]
