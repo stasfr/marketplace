@@ -31,7 +31,7 @@
     <button
       v-else
       class="v-catalog-item__add_to_card_btn"
-      @click="SHOW_POPUP('Out Of Stock')"
+      @click="SHOW_POPUP"
     >
       Out Of Stock
     </button>

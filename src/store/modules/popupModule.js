@@ -1,20 +1,18 @@
 export default {
   state: {
-    isPopupShow: false,
-    popupMessage: ''
+    isPopupShow: false
   },
   actions: {
-    SHOW_POPUP({commit}, message) {
-      commit('SHOW', message)
+    SHOW_POPUP({commit}) {
+      commit('SHOW')
     },
     HIDE_POPUP({commit}) {
       commit('HIDE')
     }
   },
   mutations: {
-    SHOW: (state, message) => {
+    SHOW: (state) => {
       state.isPopupShow = true
-      state.popupMessage = message
     },
     HIDE: (state) => {
       state.isPopupShow = false
@@ -23,9 +21,6 @@ export default {
   getters: {
     IS_POPUP_SHOW(state) {
       return state.isPopupShow
-    },
-    POPUP_MESSAGE(state) {
-      return state.popupMessage
     }
   },
 }

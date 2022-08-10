@@ -1,18 +1,21 @@
 <template>
-  <div class="popup__wrapper">
-    <div class="popup__message">
-      <div class="title">Sorry</div>
-      <div>{{ this.POPUP_MESSAGE }}</div>
-      <button @click="HIDE_POPUP">close</button>
+  <transition name="modal-fade">
+    <div class="popup_wrapper">
+      <div class="popup_body">
+        <div class="popup_header">
+          <slot name="header"> default header </slot>
+        </div>
+        <div class="popup_message">
+          <slot name="message"> default message </slot>
+        </div>
+        <button class="popup_btn" @click="HIDE_POPUP">close</button>
+      </div>
     </div>
-  </div>
+  </transition>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
-  computed: {
-    ...mapGetters(['POPUP_MESSAGE'])
-  },
   methods: {
     ...mapActions(['HIDE_POPUP'])
   }

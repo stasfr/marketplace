@@ -194,17 +194,6 @@ section,
   }
 }
 
-.popup__wrapper {
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.popup__message{
-
-}
-
 @import './common/_common';
+@import './components/components';
 @import './helpers/_helpers';
