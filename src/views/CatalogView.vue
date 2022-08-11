@@ -2,11 +2,11 @@
   <div class="container">
     <div class="v-catalog-view__in_stock">
       <div class="title">Catalog</div>
-      <v-catalog :products="PRODUCTS" :stockFilter="true" />
+      <v-catalog :products="products(true)" />
     </div>
     <div class="v-catalog-view__out_stock" v-if="isOutOfStock">
       <div class="title">Out Of Stock</div>
-      <v-catalog :products="PRODUCTS" :stockFilter="false" />
+      <v-catalog :products="products(false)" />
     </div>
     <v-popup v-if="IS_POPUP_SHOW">
       <template v-slot:header>Sorry</template>
@@ -27,12 +27,15 @@ export default {
     vPopup
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS_FROM_API', 'LOAD_FROM_LOCAL_STORAGE'])
+    ...mapActions(['GET_PRODUCTS_FROM_API', 'LOAD_FROM_LOCAL_STORAGE']),
+    products(available) {
+      return this.PRODUCTS.filter(element => element.available === available)
+    }
   },
   computed: {
     ...mapGetters(['PRODUCTS', 'IS_POPUP_SHOW']),
     isOutOfStock() {
-      return this.PRODUCTS.find(el => el.available === false)
+      return this.PRODUCTS.find(element => element.available === false)
     }
   },
   mounted() {

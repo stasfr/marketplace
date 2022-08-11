@@ -1,5 +1,5 @@
 <template>
-  <div class="v-catalog-item" v-if="availableFilter === productData.available">
+  <div class="v-catalog-item">
     <router-link
       class="v-catalog-item__link"
       :to="{
@@ -49,10 +49,6 @@ export default {
       default() {
         return {}
       }
-    },
-    availableFilter: {
-      type: Boolean,
-      required: true
     }
   },
   methods: {

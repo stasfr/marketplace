@@ -5,7 +5,6 @@
         v-for="product in products"
         :key="product.article"
         :productData="product"
-        :availableFilter="stockFilter"
       />
     </div>
   </div>
@@ -22,10 +21,6 @@ export default {
   props: {
     products: {
       type: Array,
-      required: true
-    },
-    stockFilter: {
-      type: Boolean,
       required: true
     }
   }
