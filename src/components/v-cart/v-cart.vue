@@ -1,15 +1,13 @@
 <template>
-  <div class="container">
-    <div class="v-cart">
-      <div class="title" v-if="isCartEmpty(CART)">Cart is empty</div>
-      <v-cart-item
-        v-for="(cartItemValue, cartItemKey) in CART"
-        :key="cartItemKey"
-        :productArticle="cartItemKey"
-        :productQuantity="cartItemValue"
-        :productData="PRODUCTS.find(el => el.article === cartItemKey)"
-      />
-    </div>
+  <div class="v-cart">
+    <div class="title" v-if="isCartEmpty(CART)">Cart is empty</div>
+    <v-cart-item
+      v-for="(cartItemValue, cartItemKey) in CART"
+      :key="cartItemKey"
+      :productArticle="cartItemKey"
+      :productQuantity="cartItemValue"
+      :productData="PRODUCTS.find(el => el.article === cartItemKey)"
+    />
   </div>
 </template>
 
