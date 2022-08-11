@@ -1,6 +1,6 @@
 <template>
   <transition name="modal-fade">
-    <div class="popup_wrapper">
+    <div v-if="IS_POPUP_SHOW" class="popup_wrapper">
       <div class="popup_body">
         <div class="popup_header">
           <slot name="header"> default header </slot>
@@ -14,10 +14,13 @@
   </transition>
 </template>
 <script>
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 export default {
   methods: {
     ...mapActions(['HIDE_POPUP'])
+  },
+  computed: {
+    ...mapGetters(['IS_POPUP_SHOW'])
   }
 }
 </script>

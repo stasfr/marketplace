@@ -7,7 +7,7 @@
     <div class="title">Out Of Stock</div>
     <v-catalog :products="products(false)" />
   </div>
-  <v-popup v-if="IS_POPUP_SHOW">
+  <v-popup>
     <template v-slot:header>Sorry</template>
     <template v-slot:message>This item is out of stock</template>
   </v-popup>
@@ -31,7 +31,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['PRODUCTS', 'IS_POPUP_SHOW']),
+    ...mapGetters(['PRODUCTS']),
     isOutOfStock() {
       return this.PRODUCTS.find(element => element.available === false)
     }

@@ -23,7 +23,7 @@
       Out Of Stock
     </button>
   </div>
-  <v-popup v-if="IS_POPUP_SHOW">
+  <v-popup>
     <template v-slot:header>Sorry</template>
     <template v-slot:message>This item is out of stock</template>
   </v-popup>
@@ -41,7 +41,7 @@ export default {
     this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
   },
   computed: {
-    ...mapGetters(['PRODUCTS', 'IS_POPUP_SHOW']),
+    ...mapGetters(['PRODUCTS']),
     product() {
       return this.PRODUCTS.find(
         element => element.article === this.$route.params.productArticle
