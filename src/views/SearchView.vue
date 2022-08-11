@@ -17,11 +17,14 @@ export default {
   },
   computed: {
     ...mapGetters(['PRODUCTS']),
+    products() {
+      return this.PRODUCTS.filter(element => element.name.includes(this.$route.params.searchBody))
+    },
     isFound() {
-      return !this.PRODUCTS.filter(element => element.name.includes(this.$route.params.searchBody)).length
+      return !this.products.length
     },
     searchProducts() {
-      return this.PRODUCTS.filter(element => element.name.includes(this.$route.params.searchBody))
+      return this.products
     }
   },
   mounted() {

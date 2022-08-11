@@ -15,7 +15,7 @@
 
 <script>
 import vCatalog from '@/components/v-catalog/v-catalog.vue'
-import vPopup from '@/components/v-popup.vue'
+import vPopup from '@/components/v-main-wrapper/v-popup.vue'
 
 import { mapActions, mapGetters } from 'vuex'
 

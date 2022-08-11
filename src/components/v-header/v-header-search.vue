@@ -1,15 +1,15 @@
 <template>
-  <div class="navbar-search">
+  <form class="navbar-search" @submit.prevent="search">
     <input
       class="navbar-search__input"
       type="text"
       placeholder="search..."
       v-model="searchBody"
     />
-    <button class="navbar-search__btn" @click="search">
+    <button class="navbar-search__btn">
       <font-awesome-icon icon="fa-solid fa-search" />
     </button>
-  </div>
+  </form>
 </template>
 
 <script>

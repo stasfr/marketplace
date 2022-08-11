@@ -25,9 +25,6 @@ export default {
   created() {
     this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
   },
-  data() {
-    return {}
-  },
   computed: {
     ...mapGetters(['PRODUCTS']),
     product() {

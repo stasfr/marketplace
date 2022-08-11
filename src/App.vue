@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import vMainWrapper from '@/components/v-main-wrapper.vue'
+import vMainWrapper from '@/components/v-main-wrapper/v-main-wrapper.vue'
 
 export default {
   name: 'app',

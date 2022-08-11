@@ -12,7 +12,7 @@
 
 <script>
 import vHeader from '@/components/v-header/v-header.vue'
-import vCartMenu from '@/components/v-catalog/v-cart-menu.vue'
+import vCartMenu from '@/components/v-main-wrapper/v-cart-menu.vue'
 
 export default {
   name: 'v-main-wrapper',
