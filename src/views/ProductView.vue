@@ -23,9 +23,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   created() {
-    if (!this.PRODUCTS.length) {
-      this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
-    }
+    this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
   },
   data() {
     return {}
