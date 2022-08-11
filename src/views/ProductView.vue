@@ -12,21 +12,36 @@
     <div>{{ product.price }} &#8381;</div>
     <div>{{ product.category }}</div>
     <div>{{ product.available }}</div>
-    <button class="v-catalog-item__add_to_card_btn" @click="addToCart">
+    <button
+      v-if="product.available === true"
+      class="v-catalog-item__add_to_card_btn"
+      @click="addToCart"
+    >
       Buy
     </button>
+    <button v-else class="v-catalog-item__add_to_card_btn" @click="SHOW_POPUP">
+      Out Of Stock
+    </button>
   </div>
+  <v-popup v-if="IS_POPUP_SHOW">
+    <template v-slot:header>Sorry</template>
+    <template v-slot:message>This item is out of stock</template>
+  </v-popup>
 </template>
 
 <script>
+import vPopup from '@/components/v-main-wrapper/v-popup.vue'
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
+  components: {
+    vPopup
+  },
   created() {
     this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
   },
   computed: {
-    ...mapGetters(['PRODUCTS']),
+    ...mapGetters(['PRODUCTS', 'IS_POPUP_SHOW']),
     product() {
       return this.PRODUCTS.find(
         element => element.article === this.$route.params.productArticle
@@ -34,7 +49,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_CART']),
+    ...mapActions(['GET_PRODUCTS_FROM_API', 'ADD_TO_CART', 'SHOW_POPUP']),
     addToCart() {
       this.ADD_TO_CART(this.product)
     },

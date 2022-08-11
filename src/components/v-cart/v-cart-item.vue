@@ -6,7 +6,17 @@
       :src="require(`@/assets/images/${productData.image}`)"
     />
     <div class="v-cart-item__info">
-      <div>{{ productData.name }}</div>
+      <router-link
+        :to="{
+          name: 'ProductView',
+          params: {
+            productArticle: productData.article,
+            title: productData.name
+          }
+        }"
+      >
+        <div>{{ productData.name }}</div>
+      </router-link>
       <div>{{ productData.article }}</div>
       <div>{{ productData.price }} &#8381;</div>
     </div>
