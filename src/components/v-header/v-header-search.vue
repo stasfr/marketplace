@@ -5,6 +5,7 @@
       type="text"
       placeholder="search..."
       v-model="searchBody"
+      :class="{ error: isError }"
     />
     <button class="navbar-search__btn">
       <font-awesome-icon icon="fa-solid fa-search" />
@@ -18,7 +19,8 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 export default {
   data() {
     return {
-      searchBody: ''
+      searchBody: '',
+      isError: false
     }
   },
   components: {
@@ -26,13 +28,22 @@ export default {
   },
   methods: {
     search() {
-      this.$router.push({
-        name: 'SearchView',
-        params: {
-          searchBody: this.searchBody,
-          title: `Search: ${this.searchBody}`
-        }
-      })
+      if (this.searchBody.length) {
+        this.$router.push({
+          name: 'SearchView',
+          params: {
+            searchBody: this.searchBody,
+            title: `Search: ${this.searchBody}`
+          }
+        })
+      } else {
+        this.isError = true
+      }
+    }
+  },
+  watch: {
+    searchBody() {
+      this.isError = false
     }
   }
 }

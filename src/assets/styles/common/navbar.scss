@@ -38,6 +38,14 @@
   }
 }
 
+.error::placeholder {
+  color: $danger-color;
+}
+
+.search_error {
+  color: $danger-color;
+}
+
 .navbar-list {
   display: flex;
   align-items: center;
