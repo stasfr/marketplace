@@ -31,6 +31,13 @@ const routes = [
     meta: { requiresCartMenu: true }
   },
   {
+    title: 'Search',
+    name: 'SearchView',
+    path: '/search/:searchBody',
+    component: () => import('@/views/SearchView'),
+    meta: { requiresCartMenu: true }
+  },
+  {
     path: '/:CatchAll(.*)',
     name: '404',
     component: () => import('@/views/NotFoundView'),

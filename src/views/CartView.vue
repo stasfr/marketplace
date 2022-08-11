@@ -1,8 +1,6 @@
 <template>
-  <div class="container">
-    <div class="title">Cart</div>
-    <v-cart />
-  </div>
+  <div class="title">Cart</div>
+  <v-cart />
 </template>
 
 <script>

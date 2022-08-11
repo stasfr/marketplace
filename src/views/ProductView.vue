@@ -1,5 +1,5 @@
 <template>
-  <div class="container" v-if="product !== undefined">
+  <div v-if="product !== undefined">
     <button @click="goBack">Catalog</button>
     <div>{{ $route.params.productArticle }}</div>
     <img

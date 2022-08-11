@@ -1,18 +1,16 @@
 <template>
-  <div class="container">
-    <div class="v-catalog-view__in_stock">
-      <div class="title">Catalog</div>
-      <v-catalog :products="products(true)" />
-    </div>
-    <div class="v-catalog-view__out_stock" v-if="isOutOfStock">
-      <div class="title">Out Of Stock</div>
-      <v-catalog :products="products(false)" />
-    </div>
-    <v-popup v-if="IS_POPUP_SHOW">
-      <template v-slot:header>Sorry</template>
-      <template v-slot:message>This item is out of stock</template>
-    </v-popup>
+  <div class="v-catalog-view__in_stock">
+    <div class="title">Catalog</div>
+    <v-catalog :products="products(true)" />
   </div>
+  <div class="v-catalog-view__out_stock" v-if="isOutOfStock">
+    <div class="title">Out Of Stock</div>
+    <v-catalog :products="products(false)" />
+  </div>
+  <v-popup v-if="IS_POPUP_SHOW">
+    <template v-slot:header>Sorry</template>
+    <template v-slot:message>This item is out of stock</template>
+  </v-popup>
 </template>
 
 <script>

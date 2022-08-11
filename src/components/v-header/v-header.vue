@@ -3,10 +3,7 @@
     <div class="container">
       <div class="navbar-content">
         <router-link class="navbar-logo" to="/">{{ title }}</router-link>
-        <div class="navbar-search">
-          <input class="navbar-search__input" type="text" placeholder="search...">
-          <button class="navbar-search__btn" @click="search"><font-awesome-icon icon="fa-solid fa-search" /></button>
-        </div>
+        <v-header-search />
         <ul class="navbar-list">
           <li class="navbar-item" v-for="link in links" :key="link.alias">
             <router-link class="navbar-link" :to="link.url">
@@ -21,7 +18,7 @@
 
 <script>
 import { links, title } from '@/_config'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import vHeaderSearch from '@/components/v-header/v-header-search.vue'
 
 export default {
   data() {
@@ -31,12 +28,7 @@ export default {
     }
   },
   components: {
-    FontAwesomeIcon
-  },
-  methods: {
-    search() {
-      console.log(123);
-    }
+    vHeaderSearch
   }
 }
 </script>
