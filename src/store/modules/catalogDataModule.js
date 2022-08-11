@@ -7,11 +7,12 @@ export default {
   },
   actions: {
     GET_PRODUCTS_FROM_API({ commit }, articles) {
-      return axios.get(`${backendUrl}/products`, {
-        params: {
-          'article': articles
-        }
-      })
+      return axios
+        .get(`${backendUrl}/products`, {
+          params: {
+            article: articles
+          }
+        })
         .then(products => {
           commit('SET_PRODUCTS_TO_STATE', products.data)
           return products
