@@ -18,7 +18,7 @@ export default {
   computed: {
     ...mapGetters(['PRODUCTS']),
     products() {
-      return this.PRODUCTS.filter(element => element.name.includes(this.$route.params.searchBody))
+      return this.PRODUCTS.filter(element => element.name.toLowerCase().includes(this.$route.params.searchBody.toLowerCase()))
     },
     isFound() {
       return !this.products.length
