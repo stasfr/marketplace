@@ -38,7 +38,9 @@ export default {
     vPopup
   },
   created() {
-    this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
+    if (!this.PRODUCTS.length) {
+      this.GET_PRODUCTS_FROM_API(this.$route.params.productArticle)
+    }
   },
   computed: {
     ...mapGetters(['PRODUCTS']),
