@@ -16,13 +16,12 @@ export default {
     ...mapGetters(['CART', 'PRODUCTS'])
   },
   methods: {
-    ...mapActions(['LOAD_FROM_LOCAL_STORAGE', 'GET_PRODUCTS_FROM_API']),
+    ...mapActions(['GET_PRODUCTS_FROM_API']),
     isCartEmpty(CART) {
       return !Object.keys(CART).length
     }
   },
   mounted() {
-    this.LOAD_FROM_LOCAL_STORAGE()
     this.GET_PRODUCTS_FROM_API(Object.keys(this.CART))
   }
 }

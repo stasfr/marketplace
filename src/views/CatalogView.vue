@@ -25,7 +25,7 @@ export default {
     vPopup
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS_FROM_API', 'LOAD_FROM_LOCAL_STORAGE']),
+    ...mapActions(['GET_PRODUCTS_FROM_API']),
     products(available) {
       return this.PRODUCTS.filter(element => element.available === available)
     }
@@ -37,7 +37,6 @@ export default {
     }
   },
   mounted() {
-    this.LOAD_FROM_LOCAL_STORAGE()
     this.GET_PRODUCTS_FROM_API()
   }
 }
