@@ -7,6 +7,10 @@ import cookieParser from 'cookie-parser'
 const PORT = process.env.PORT || 5000
 const app = express()
 
+app.get('/', (request, response) => {
+  response.send('hello, world!')
+})
+
 const start = async () => {
   try {
     app.listen(PORT, () => {
